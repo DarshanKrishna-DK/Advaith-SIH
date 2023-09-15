@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+  --bg-color: #050a13;
+  --second-bg-color: #0d1f2d;
+  --text-color: #fff;
+  --main-color: #00eeff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body{
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+section{
+    min-height: 100vh;
+    padding: 100px 150px;
+}
+
+a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.button{
+    background: transparent;
+    color: var(--text-color);
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 10px var(--text-color);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.button:hover{
+    box-shadow: 0 0 .8rem var(--main-color); 
+    transform: scale(0.95);
+    transition: 0.3s ease;
+}
+
+/* ------ NavBar Style ------ */
+
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 18px 50px 0 150px;
+    position: fixed;
+    z-index: 9;
+}
+
+.title {
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-size: 2rem;
+    color: transparent;
+    position: relative;
+    background: transparent;
+    -webkit-text-stroke: 1.5px var(--text-color);
+}
+  
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    color: var(--main-color);
+    width: 0%;
+    inset: 0;
+    border-right: 6px solid var(--main-color);
+    overflow: hidden;
+    transition: 0.6s;
+    -webkit-text-stroke: 1px var(--main-color);
+  }
+
+.title:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0px 0px 20px var(--main-color));
+}
+
+header .navigation{
+  z-index: 9;
+  margin: 0 0 0 50rem;
+}
+
+header .navigation a{
+    position: relative;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 100px;
+}
+
+header .navigation a:before{
+    content: "";
+    position: absolute;
+    background: var(--main-color);
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.4s ease;
+}
+  
+header .navigation a:hover:before{
+    width: 100%;
+}
+
+.nav-bg{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 73px;
+    background: black;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+/* Main Page content */
+
+.home{
+    display: flex;
+    align-items: center;
+    background: var(--second-bg-color);
+}
+
+#radar {
+    position:relative;
+    width:400px;
+    height:400px;
+    background-color:#020;
+    background-image:
+      linear-gradient(to right, transparent 199px, #0c0 199px, #0c0 201px, transparent 201px),
+      linear-gradient(to bottom, transparent 199px, #0c0 199px, #0c0 201px, transparent 201px),
+      radial-gradient(circle at center,
+        #0c0 4px, transparent 4px,
+        transparent 49px, #0c0 49px, #0c0 50px, transparent 50px,
+        transparent 99px, #0c0 99px, #0c0 100px, transparent 100px,
+        transparent 149px, #0c0 149px, #0c0 150px, transparent 150px,
+        transparent 198px, #0c0 198px);
+    border-radius:50%;
+}
+#radar>* {position:absolute}
+.beacon {
+    left:50%;
+    top:50%;
+    border-style:solid;
+    border-width:8px 200px 8px 0;
+    border-color:transparent;
+    border-right-color:#0c0;
+    margin-top:-8px;
+    transform-origin:0 50%;
+    animation: spin 5s linear infinite;
+}
+#beacon-75 {opacity: 0.75; animation-delay:0.05s}
+#beacon-50 {opacity: 0.50; animation-delay:0.10s}
+#beacon-25 {opacity: 0.25; animation-delay:0.15s}
+
+.object {
+  width: 8px;
+  height: 8px;
+  margin: -4px;
+  background-color: #0c0;
+  border-radius: 4px;
+  animation: spotted 5s linear infinite both;
+}
+
+@keyframes spin {
+    from {transform:rotate(0)}
+    to {transform:rotate(360deg)}
+}
+@keyframes spotted {
+    from {opacity:0}
+    1% {opacity:1}
+    40% {opacity:0}
+    to {opacity:0}
+}
+
+.proj-heading{
+    margin: 0 0 0rem 15rem;
+}
+
+.proj-heading span{
+    font-size: 6rem;
+    text-transform: uppercase;
+    color: var(--main-color);
+    margin-bottom: 3rem;
+}
+
+.proj-heading p{
+    font-size: 1.6rem;
+    display: flex;
+    text-align: justify;
+    margin-bottom: 3rem;
+}
+
+/* Chat Bot style */
+
+.chatbot-toggler {
+    position: fixed;
+    bottom: 25px;
+    right: 35px;
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    z-index: 10;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--text-color);
+    background: var(--bg-color);
+    transition: all 0.2s ease;
+    z-index: 10;
+  }
+
+.chatbot-toggler span i{
+    font-size: 2.5rem;
+    color: var(--main-color);
+}
+
+  body.show-chatbot .chatbot-toggler {
+    transform: rotate(90deg);
+  }
+  .chatbot-toggler span {
+    position: absolute;
+  }
+  .chatbot-toggler span:last-child,
+  body.show-chatbot .chatbot-toggler span:first-child  {
+    opacity: 0;
+  }
+  body.show-chatbot .chatbot-toggler span:last-child {
+    opacity: 1;
+  }
+  .chatbot {
+    position: fixed;
+    z-index: 10;
+    right: 35px;
+    bottom: 90px;
+    width: 420px;
+    height: 50rem;
+    background: var(--text-color);
+    border-radius: 15px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.5);
+    transform-origin: bottom right;
+    transition: all 0.1s ease;
+    box-shadow: 0 0 10px var();
+  }
+  body.show-chatbot .chatbot {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+  }
+  .chatbot header {
+    padding: 16px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    background: #029f02;
+    /* border-bottom: 1px solid var(--bg-color); */
+  }
+
+  .chatbot header span {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    display: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+  header h2 {
+    font-size: 1.6rem;
+    letter-spacing: .3rem;
+    margin: 0 auto;
+  }
+  .chatbot .chatbox {
+    overflow-y: auto;
+    height: 510px;
+    padding: 30px 20px 100px;
+  }
+  .chatbot :where(.chatbox, textarea)::-webkit-scrollbar {
+    width: 6px;
+  }
+  .chatbot :where(.chatbox, textarea)::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 25px;
+  }
+  .chatbot :where(.chatbox, textarea)::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 25px;
+  }
+  .chatbox .chat {
+    display: flex;
+    list-style: none;
+  }
+  .chatbox .outgoing {
+    margin: 20px 0;
+    justify-content: flex-end;
+  }
+
+  .chatbox .chat span i{
+    font-size: 2rem;
+  }
+  
+  .chatbox .incoming span {
+    width: 32px;
+    height: 32px;
+    color: var(--bg-color);
+    cursor: default;
+    line-height: 32px;
+    padding: .5rem;
+    align-self: flex-end;
+    background: #029f02;
+    border-radius: 4px;
+    margin: 0 10px 7px 0;
+  }
+  .chatbox .chat p {
+    white-space: pre-wrap;
+    padding: 12px 16px;
+    border-radius: 10px 10px 0 10px;
+    max-width: 75%;
+    color: #fff;
+    font-size: 1.2rem;
+    background: #029f02;
+    /* #724ae8 */
+  }
+  .chatbox .incoming p {
+    border-radius: 10px 10px 10px 0;
+  }
+  .chatbox .chat p.error {
+    color: #721c24;
+    background: #f8d7da;
+  }
+  .chatbox .incoming p {
+    color: #000;
+    background: #f2f2f2;
+  }
+  .chatbot .chat-input {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    padding: 3px 20px;
+    border-top: 1px solid var(--bg-color);
+  }
+  .chat-input textarea {
+    height: 50px;
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    max-height: 180px;
+    padding: 15px 15px 15px 0;
+    font-size: 1.3rem;
+  }
+  .chat-input span {
+    align-self: flex-end;
+    color: var(--bg-color);
+    cursor: pointer;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+    font-size: 2rem;
+  }
+
+.chat-input textarea:valid ~ span {
+    visibility: visible;
+}
+
+@media (max-width: 490px) {
+    .chatbot-toggler {
+      right: 20px;
+      bottom: 20px;
+    }
+    .chatbot {
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      border-radius: 0;
+      width: 100%;
+    }
+    .chatbot .chatbox {
+      height: 90%;
+      padding: 25px 15px 100px;
+    }
+    .chatbot .chat-input {
+      padding: 5px 15px;
+    }
+    .chatbot header span {
+      display: block;
+    }
+  }
+
+
+/* --- Model1 Page style --- */
+
+.model1, .model2, .model3{
+    display: flex;
+    align-items: center;
+}
+
+.model-title{
+    flex: 40%;
+}
+
+.model-content{
+    flex:60%;
+}
+
+.model-title h1{
+    text-transform: uppercase;
+    font-size: 5rem;
+    animation: floatText 4s ease-in-out infinite;
+}
+
+@keyframes floatText{
+    0%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-2.4rem);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}
+
+.model-title span, .model-extra span{
+    color: var(--main-color);
+}
+
+.model-content p{
+    font-size: 1.5rem;
+    margin-top: 10rem;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.model-title{
+    margin-right: 5rem;
+}
+
+.model-extra{
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    margin-left: 10rem;
+    animation: floatText 4s ease-in-out infinite;
+}
+
+.model2{
+    background: var(--second-bg-color);
+}
+
+/* ------------------Footer section style------------------ */
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background: var(--second-bg-color);
+}
+
+.footer-text p{
+    font-size: 1.6rem;
+}
+
+.footer-iconTop a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: var(--main-color);
+    border-radius: .8rem;
+    transition: .4s ease;
+}
+
+.footer-iconTop a i{
+    font-size: 2.4rem;
+    color: var(--second-bg-color);
+}
+
+.footer-iconTop a:hover{
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+
+
+
+
+
